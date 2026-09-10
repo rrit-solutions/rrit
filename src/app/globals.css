@@ -1,0 +1,319 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   Raghava Ram IT Solutions — design tokens
+
+   Direction: "Field Manual". An engineering document, not a template.
+   Corner radius is 0, surfaces separate with 1px rules rather than borders on
+   floating cards, and the accent is never a fill larger than a button.
+
+   Palette: **Navy & Vermilion**. The accent is Ink & Vermilion's `#E34234`
+   from the template studies artifact; the dark end is no longer that study's
+   near-black but a navy sampled straight out of the hero video, so the page
+   and the skyline behind it are the same colour story.
+
+   The navies are measured, not invented — `ffmpeg` averages over the plate:
+
+     night sky      #000616      night lake     #000f24
+     mid-transition #212530      mid lake       #1d2135
+
+   `ink` is the lake at full night opened up enough to stay a colour rather
+   than a black; `plate-dp` and `plate` step up from it.
+
+   Two things about the accent are worth keeping straight:
+
+     - A single vermilion cannot be text-legible on both the paper and the navy
+       plates, so it is split. `accent` is darkened for paper, `accent-lt`
+       lightened for the plates, and `hot` is the study's #E34234 exactly —
+       fills and graphics only, never small text.
+     - Vermilion on navy is doing a lot of work at very small quantities. It
+       stays hairlines, ticks and numerals, with one filled button per screen.
+
+   The paper was a warm cream when the dark end was brown. Against navy it is
+   cooled to a blue-cast off-white; there is no warm colour left on the page.
+   To go back to cream, `--color-paper: #f8f4ec` / `--color-paper-dp: #eee8da`
+   is the whole change — every contrast below still passes.
+
+   `moss` is dropped; it had no usages.
+
+   `accent-lt` was #f07a66 and is now #f2826c. The old value cleared AA on
+   `plate-dp` and `ink` but measured **4.32:1 on `plate`** — the lightest of the
+   three navies — which is where the metrics eyebrow and the selected
+   capability chips put it. Two stops lighter clears 4.5 on `plate` and, because
+   the chip's ✓ is `plate` *on* an `accent-lt` fill, fixes that pairing in the
+   same move: the ratio is symmetric, so both directions rise together.
+
+   Muted text alphas: `/45` and `/55` were one step below AA against the navies
+   (`paper/45` measures 3.5:1 on `plate`). Both are now `/60`, the lowest step
+   that clears 4.5 on all three. `text-ink/45` on paper was 2.88:1 and is `/60`.
+
+   Contrast, computed (WCAG 2.1, normal text unless noted):
+     ink       on paper    16.2:1  AAA    paper     on ink        16.2:1  AAA
+     slate     on paper     5.4:1  AA     paper     on plate-dp   14.0:1  AAA
+     accent    on paper     5.2:1  AA     paper     on plate      10.9:1  AAA
+     paper     on accent    5.2:1  AA     accent-lt on plate-dp    5.9:1  AA
+     ink       on paper-dp 14.5:1  AAA    accent-lt on plate       4.6:1  AA
+     paper/60  on plate     5.0:1  AA     plate     on accent-lt   4.6:1  AA
+     paper/60  on ink       6.4:1  AA     ink/60    on paper       4.5:1  AA
+     hot       on paper     3.8:1  graphic/large only — never small text
+   --------------------------------------------------------------------------- */
+
+@theme {
+  /* Dark end — the lake and the night sky out of the hero video. */
+  --color-ink: #071a2f;
+  --color-plate-dp: #0e2740;
+  --color-plate: #17395c;
+
+  /* Paper end — the page's default state. Cool, to sit against the navy. */
+  --color-paper: #f4f6fa;
+  --color-paper-dp: #e6eaf2;
+  --color-slate: #5a6675;
+
+  /* Vermilion. Mostly 1px rules, ticks and numerals; one filled button per
+     screen. Two values so it stays legible on paper and on the dark plates. */
+  --color-accent: #c0321f;
+  --color-accent-lt: #f2826c;
+
+  /* The study's accent, unmodified. Fills and graphics only — at 3.8:1 on
+     paper it is not a text colour. */
+  --color-hot: #e34234;
+
+  --font-display: var(--font-bricolage), Georgia, serif;
+  --font-body: var(--font-instrument), system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+
+  /* z-index scale — define it, don't improvise */
+  --z-base: 0;
+  --z-raised: 10;
+  --z-sticky: 20;
+  --z-overlay: 30;
+  --z-modal: 50;
+
+  /* Corner radius is 0 by design. This token exists so the two places that
+     legitimately need a soft edge stay consistent. */
+  --radius-edge: 2px;
+
+  /* The one ambient animation on the site: the dashed orbit in the spatial
+     "why choose us" chart drifts slowly around its ring, so the diagram reads
+     as live rather than as a static illustration. Slow enough not to pull the
+     eye off the text sitting in the middle of it. */
+  --animate-orbit-drift: orbit-drift 16s linear infinite;
+  @keyframes orbit-drift {
+    to {
+      stroke-dashoffset: -110;
+    }
+  }
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Bright surfaces are used for the primary experience. They keep the
+   information-dense components readable without making every section a dark
+   panel, and preserve the same accent/rule language across the site. */
+.bright-surface {
+  background: #f7fbff !important;
+  color: var(--color-ink);
+}
+.bright-surface [class*="text-paper"] {
+  color: var(--color-ink) !important;
+}
+.bright-surface [class*="text-accent-lt"] {
+  color: var(--color-accent) !important;
+}
+.bright-surface [class*="bg-ink"],
+.bright-surface [class*="bg-plate"] {
+  background-color: #e8f2ff !important;
+}
+.bright-surface [class*="border-paper"] {
+  border-color: color-mix(in oklab, var(--color-ink) 18%, transparent) !important;
+}
+.bright-surface .on-dark::before,
+.bright-surface .bg-accent-lt {
+  background-color: var(--color-accent) !important;
+}
+.bright-surface .bg-accent[class*="text-paper"] {
+  color: var(--color-paper) !important;
+}
+
+/* The masthead is now readable on every route and no longer depends on a
+   dark video frame being behind it. */
+.site-header {
+  background: color-mix(in srgb, var(--color-paper) 92%, transparent);
+  border-color: color-mix(in oklab, var(--color-ink) 14%, transparent) !important;
+  backdrop-filter: blur(14px);
+}
+.site-header [class*="text-paper"] {
+  color: var(--color-ink) !important;
+}
+.site-header [class*="text-accent-lt"] {
+  color: var(--color-accent) !important;
+}
+.site-header [class*="border-paper"] {
+  border-color: color-mix(in oklab, var(--color-ink) 20%, transparent) !important;
+}
+.site-header .bg-ink {
+  background-color: var(--color-paper) !important;
+}
+.site-header .bg-accent[class*="text-paper"] {
+  color: var(--color-paper) !important;
+}
+
+/* Telugu swap — no JS, purely lang-scoped. Noto faces carry the Telugu
+   coverage that Bricolage and Instrument Sans lack. */
+:lang(te) {
+  --font-display: var(--font-noto-serif-te), Georgia, serif;
+  --font-body: var(--font-noto-sans-te), system-ui, sans-serif;
+}
+:lang(te) h1,
+:lang(te) h2,
+:lang(te) h3 {
+  /* Telugu has taller ascenders/descenders than Latin — needs more leading
+     or conjuncts collide with the line above. */
+  line-height: 1.35;
+}
+
+/* --- Typography primitives ------------------------------------------------ */
+
+/* Bricolage Grotesque, narrowed and heavy. The width axis is what stops this
+   reading as yet another geometric sans — it gives the headline a set,
+   newspaper-column density that Inter/Manrope cannot do. */
+.display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-variation-settings: "wdth" 90;
+  letter-spacing: -0.025em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.display-sm {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-variation-settings: "wdth" 94;
+  letter-spacing: -0.015em;
+  line-height: 1.12;
+}
+
+/* Every meta label on the site: section kickers, table headers, counts,
+   the phone number. Monospace is the register that says "we build systems". */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+.prose-measure {
+  max-width: 64ch; /* 65–75 chars; a touch tighter for the larger body size */
+  line-height: 1.6;
+}
+
+/* --- Structural devices --------------------------------------------------- */
+
+/* The recurring brand mark: a 2px vermilion tick sitting on a full-width hairline.
+   Replaces the "gold gradient underline" — it reads as a document rule, and
+   it is the same object at every scale. */
+.tick-rule {
+  position: relative;
+  height: 1px;
+  background: color-mix(in oklab, currentColor 18%, transparent);
+}
+.tick-rule::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -1px;
+  width: 3.5rem;
+  height: 3px;
+  background: var(--color-accent);
+}
+.tick-rule.on-dark::before {
+  background: var(--color-accent-lt);
+}
+
+/* Technical hatch, for reserved/pending surfaces. A dashed rounded box is the
+   single most template-looking placeholder there is. */
+.hatch {
+  background-image: repeating-linear-gradient(
+    45deg,
+    color-mix(in oklab, currentColor 12%, transparent) 0,
+    color-mix(in oklab, currentColor 12%, transparent) 1px,
+    transparent 1px,
+    transparent 9px
+  );
+}
+
+/* Starfield behind the spatial chart. Masked to an ellipse so the dots fade
+   out before they reach the section edges — depth, not wallpaper. */
+.starfield {
+  background-image: radial-gradient(currentColor 1px, transparent 1px);
+  background-size: 26px 26px;
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    #000 0%,
+    #000 52%,
+    transparent 76%
+  );
+  mask-image: radial-gradient(
+    ellipse at center,
+    #000 0%,
+    #000 52%,
+    transparent 76%
+  );
+}
+
+/* --- Accessibility -------------------------------------------------------- */
+
+:focus-visible {
+  outline: 2px solid var(--color-hot);
+  outline-offset: 2px;
+  border-radius: 0;
+}
+.on-dark :focus-visible,
+.dark-band :focus-visible {
+  outline-color: var(--color-accent-lt);
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: var(--z-modal);
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-weight: 600;
+}
+
+/* Honour motion preferences everywhere, including the hero crossfade. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
