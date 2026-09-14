@@ -59,24 +59,22 @@
    --------------------------------------------------------------------------- */
 
 @theme {
-  /* Dark end — the lake and the night sky out of the hero video. */
-  --color-ink: #071a2f;
-  --color-plate-dp: #0e2740;
-  --color-plate: #17395c;
+  /* Dark end — main brand contrast stays black, but the page base is white. */
+  --color-ink: #111111;
+  --color-plate-dp: #1d1d1d;
+  --color-plate: #304870;
 
-  /* Paper end — the page's default state. Cool, to sit against the navy. */
-  --color-paper: #f4f6fa;
-  --color-paper-dp: #e6eaf2;
-  --color-slate: #5a6675;
+  /* Paper end — keep the main website background clean and white. */
+  --color-paper: #ffffff;
+  --color-paper-dp: #f3f5f7;
+  --color-slate: #586373;
 
-  /* Vermilion. Mostly 1px rules, ticks and numerals; one filled button per
-     screen. Two values so it stays legible on paper and on the dark plates. */
-  --color-accent: #c0321f;
-  --color-accent-lt: #f2826c;
+  /* Accent stays in the requested blue family for emphasis and contrast. */
+  --color-accent: #304870;
+  --color-accent-lt: #5e7aa3;
 
-  /* The study's accent, unmodified. Fills and graphics only — at 3.8:1 on
-     paper it is not a text colour. */
-  --color-hot: #e34234;
+  /* Graphic accent is the same blue tone across fills and accents. */
+  --color-hot: #304870;
 
   --font-display: var(--font-bricolage), Georgia, serif;
   --font-body: var(--font-instrument), system-ui, sans-serif;
@@ -135,7 +133,11 @@ body {
   background-color: #e8f2ff !important;
 }
 .bright-surface [class*="border-paper"] {
-  border-color: color-mix(in oklab, var(--color-ink) 18%, transparent) !important;
+  border-color: color-mix(
+    in oklab,
+    var(--color-ink) 18%,
+    transparent
+  ) !important;
 }
 .bright-surface .on-dark::before,
 .bright-surface .bg-accent-lt {
@@ -149,7 +151,11 @@ body {
    dark video frame being behind it. */
 .site-header {
   background: color-mix(in srgb, var(--color-paper) 92%, transparent);
-  border-color: color-mix(in oklab, var(--color-ink) 14%, transparent) !important;
+  border-color: color-mix(
+    in oklab,
+    var(--color-ink) 14%,
+    transparent
+  ) !important;
   backdrop-filter: blur(14px);
 }
 .site-header [class*="text-paper"] {
@@ -159,7 +165,11 @@ body {
   color: var(--color-accent) !important;
 }
 .site-header [class*="border-paper"] {
-  border-color: color-mix(in oklab, var(--color-ink) 20%, transparent) !important;
+  border-color: color-mix(
+    in oklab,
+    var(--color-ink) 20%,
+    transparent
+  ) !important;
 }
 .site-header .bg-ink {
   background-color: var(--color-paper) !important;
@@ -202,6 +212,57 @@ body {
   font-variation-settings: "wdth" 94;
   letter-spacing: -0.015em;
   line-height: 1.12;
+}
+
+.site-logo-mark {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1rem;
+  min-width: 3.35rem;
+  height: 3.35rem;
+  padding: 0.18rem 0.42rem;
+  border-radius: 0.9rem;
+  background: linear-gradient(135deg, #304870 0%, #1f3b5f 100%);
+  border: 2px solid #111111;
+  box-shadow: 0 12px 22px rgba(48, 72, 112, 0.18);
+}
+
+.site-logo-mark span {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-size: 1.95rem;
+  line-height: 0.9;
+  font-weight: 800;
+  letter-spacing: -0.1em;
+  color: #ffffff;
+  text-shadow: 0 2px 0 rgba(17, 17, 17, 0.1);
+}
+
+.site-wordmark {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.06rem;
+  line-height: 1;
+}
+
+.site-wordmark__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.1rem, 2vw, 2.1rem);
+  letter-spacing: -0.055em;
+  text-transform: uppercase;
+  color: #111111;
+}
+
+.site-wordmark__tag {
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #304870;
 }
 
 /* Every meta label on the site: section kickers, table headers, counts,

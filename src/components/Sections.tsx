@@ -4,12 +4,7 @@ import { byId } from "@/content/testimonials";
 import { whyUsNodes, whyUsSourceCount } from "@/content/whyUs";
 import { CapabilityMap } from "./CapabilityMap";
 import { SpatialWhyUs } from "./SpatialWhyUs";
-import {
-  PhoneIcon,
-  WhatsAppIcon,
-  MailIcon,
-  ArrowIcon,
-} from "./Icons";
+import { PhoneIcon, WhatsAppIcon, MailIcon, ArrowIcon } from "./Icons";
 
 /** Section kicker + heading. One object, used identically on every band. */
 function SectionHead({
@@ -30,7 +25,9 @@ function SectionHead({
         <div
           className={`tick-rule ${dark ? "on-dark text-paper" : "text-ink"} w-full`}
         />
-        <p className={`eyebrow mt-5 ${dark ? "text-accent-lt" : "text-accent"}`}>
+        <p
+          className={`eyebrow mt-5 ${dark ? "text-accent-lt" : "text-accent"}`}
+        >
           {kicker}
         </p>
         <h2
@@ -150,8 +147,14 @@ export function ServiceLines() {
                   </span>
                   <span className="mt-3 grid gap-2">
                     {s.points.slice(0, 3).map((point) => (
-                      <span key={point} className="flex items-start gap-2 text-[0.8125rem] leading-snug text-ink/80">
-                        <span aria-hidden className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-accent" />
+                      <span
+                        key={point}
+                        className="flex items-start gap-2 text-[0.8125rem] leading-snug text-ink/80"
+                      >
+                        <span
+                          aria-hidden
+                          className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-accent"
+                        />
                         {point}
                       </span>
                     ))}
@@ -251,10 +254,17 @@ export function Testimonials() {
               <figure className="flex h-full w-full flex-col border border-ink/12 bg-white px-6 py-7 shadow-[0_10px_30px_-26px_rgba(7,26,47,.45)] sm:px-7 sm:py-8">
                 <div className="flex items-center gap-3">
                   <span aria-hidden className="block h-[3px] w-8 bg-accent" />
-                  <span className="eyebrow text-[0.5625rem] text-slate">Client story</span>
+                  <span className="eyebrow text-[0.5625rem] text-slate">
+                    Client story
+                  </span>
                 </div>
                 <blockquote className="mt-6 flex-1 text-[0.9375rem] leading-[1.72] text-ink/90">
-                  <span aria-hidden className="display mr-1 text-2xl leading-none text-accent">&ldquo;</span>
+                  <span
+                    aria-hidden
+                    className="display mr-1 text-2xl leading-none text-accent"
+                  >
+                    &ldquo;
+                  </span>
                   {t.quote}
                 </blockquote>
                 <figcaption className="mt-8 border-t border-ink/12 pt-5">
@@ -288,9 +298,7 @@ export function Testimonials() {
                   <dd className="display text-[clamp(2rem,3.2vw,2.75rem)] text-ink">
                     {t.metric!.value}
                   </dd>
-                  <dt className="eyebrow mt-2 text-slate">
-                    {t.metric!.label}
-                  </dt>
+                  <dt className="eyebrow mt-2 text-slate">{t.metric!.label}</dt>
                   <p className="mt-3 text-xs text-paper/60">— {t.name}</p>
                 </div>
               ))}
@@ -387,7 +395,10 @@ export function ContactBand() {
             aria-label={`Call ${company.phone}`}
             className="num block cursor-pointer whitespace-nowrap text-[clamp(2rem,4.2vw,3.75rem)] leading-none tracking-tight text-paper transition-colors duration-200 hover:text-accent-lt"
           >
-            <span aria-hidden className="mr-[0.18em] text-[0.42em] text-paper/75">
+            <span
+              aria-hidden
+              className="mr-[0.18em] text-[0.42em] text-paper/75"
+            >
               {company.phoneCc}
             </span>
             <span aria-hidden>{company.phoneLocal}</span>
@@ -401,11 +412,13 @@ export function ContactBand() {
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <a
             href={company.whatsappHref}
-            className="inline-flex min-h-[48px] cursor-pointer items-center gap-2.5 bg-accent-lt px-6 text-[0.9375rem] font-medium text-ink transition-colors duration-200 hover:bg-paper"
+            className="text-white inline-flex min-h-[48px] cursor-pointer items-center gap-2.5 bg-accent-lt px-6 text-[0.9375rem] font-medium text-ink transition-colors duration-200 hover:bg-paper"
           >
             <WhatsAppIcon aria-hidden className="h-[18px] w-[18px]" />
             <span>WhatsApp</span>
-            <span className="num border-l border-ink/20 pl-2.5 text-[0.8125rem]">{company.phone}</span>
+            <span className="num border-l border-ink/20 pl-2.5 text-[0.8125rem]">
+              {company.phone}
+            </span>
           </a>
           <a
             href={company.emailHref}

@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { company, branches, services } from "@/content/site";
 import { PhoneIcon, MailIcon, WhatsAppIcon, landmarkIcons } from "./Icons";
 
@@ -8,6 +11,12 @@ import { PhoneIcon, MailIcon, WhatsAppIcon, landmarkIcons } from "./Icons";
  * rather than a colour change.
  */
 export function SiteFooter() {
+  const [year, setYear] = useState(2026);
+
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
+
   return (
     /* Extra bottom padding below `lg` clears whichever fixed bar the route is
        showing — the call/WhatsApp bar on `/`, the estimator's summary bar on
@@ -112,7 +121,7 @@ export function SiteFooter() {
 
       <div className="mx-auto mt-8 flex max-w-7xl flex-wrap items-center justify-between gap-4 border-t border-ink/12 pt-6">
         <p className="eyebrow text-paper/60">
-          © {new Date().getFullYear()} {company.name}
+          © {year} {company.name}
         </p>
         <p className="eyebrow text-paper/60">
           Hyderabad · Bangalore · Vijayawada

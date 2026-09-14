@@ -97,10 +97,8 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  // `--color-ink`. Was #101a18, the green-black left over from the abandoned
-  // brown palette — it tinted the mobile browser chrome a different colour
-  // from the navy plate directly beneath it.
-  themeColor: "#071a2f",
+  // Match the updated black base used across the site theme.
+  themeColor: "#111111",
 };
 
 export default function RootLayout({

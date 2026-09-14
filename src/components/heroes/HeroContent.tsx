@@ -33,13 +33,12 @@ export function HeroContent() {
           <p className="eyebrow mt-5 text-accent">{company.tagline}</p>
 
           <h1 className="display mt-6 text-[clamp(2.75rem,7.5vw,5.5rem)] text-ink">
-            We build digital success that{" "}
-            <em className="text-accent not-italic">drives real results</em>
+            We build digital success that drives real results
           </h1>
 
           <p className="prose-measure mt-6 text-base text-slate sm:text-lg">
-            Web and mobile development, digital marketing, enterprise systems and
-            AI automation — delivered on time and priced for businesses that
+            Web and mobile development, digital marketing, enterprise systems
+            and AI automation — delivered on time and priced for businesses that
             actually have to watch the budget.
           </p>
 

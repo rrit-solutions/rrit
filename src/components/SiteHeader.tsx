@@ -39,23 +39,19 @@ const nav = [
  */
 export function SiteHeader({ current = "/" }: { current?: string }) {
   return (
-    <header className="site-header absolute inset-x-0 top-0 z-20 border-b border-paper/15">
+    <header className="site-header fixed inset-x-0 top-0 z-20 border-b border-paper/15">
       <div className="mx-auto flex max-w-7xl items-stretch gap-4 px-4 sm:px-6">
         <Link
           href="/"
           className="group mr-auto flex shrink-0 cursor-pointer items-center gap-3 py-4"
         >
-          <span
-            aria-hidden
-            className="display border-b-[3px] border-accent-lt pb-0.5 text-[1.6rem] leading-none text-paper transition-colors duration-200 group-hover:border-paper"
-          >
-            RR
+          <span className="site-logo-mark" aria-hidden>
+            <span>R</span>
+            <span>R</span>
           </span>
-          <span className="hidden text-[0.8125rem] leading-tight font-medium text-paper/85 sm:block">
-            Raghava Ram
-            <span className="eyebrow block text-[0.5625rem] text-paper/60">
-              IT Solutions
-            </span>
+          <span className="site-wordmark hidden sm:block">
+            <span className="site-wordmark__title">Raghava Ram</span>
+            <span className="site-wordmark__tag">IT Solutions</span>
           </span>
           <span className="sr-only">Raghava Ram IT Solutions — home</span>
         </Link>
