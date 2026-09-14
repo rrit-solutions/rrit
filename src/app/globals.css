@@ -219,48 +219,49 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.1rem;
-  min-width: 3.35rem;
-  height: 3.35rem;
-  padding: 0.18rem 0.42rem;
-  border-radius: 0.9rem;
-  background: linear-gradient(135deg, #304870 0%, #1f3b5f 100%);
-  border: 2px solid #111111;
-  box-shadow: 0 12px 22px rgba(48, 72, 112, 0.18);
+  min-width: 2.85rem;
+  height: 2.85rem;
+  padding: 0.08rem 0.28rem;
+  border-radius: 0.75rem;
+  background: #304870;
+  border: 2px solid #304870;
+  box-shadow: none;
 }
 
 .site-logo-mark span {
   position: relative;
   z-index: 1;
+  display: inline-block;
   font-family: var(--font-display);
-  font-size: 1.95rem;
-  line-height: 0.9;
+  font-size: 1.72rem;
+  line-height: 1;
   font-weight: 800;
-  letter-spacing: -0.1em;
+  letter-spacing: -0.09em;
   color: #ffffff;
-  text-shadow: 0 2px 0 rgba(17, 17, 17, 0.1);
+  text-shadow: none;
+  transform: none;
 }
 
 .site-wordmark {
   display: inline-flex;
   flex-direction: column;
-  gap: 0.06rem;
+  gap: 0.03rem;
   line-height: 1;
 }
 
 .site-wordmark__title {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(1.1rem, 2vw, 2.1rem);
-  letter-spacing: -0.055em;
+  font-size: clamp(1.02rem, 1.7vw, 1.8rem);
+  letter-spacing: -0.05em;
   text-transform: uppercase;
-  color: #111111;
+  color: #304870;
 }
 
 .site-wordmark__tag {
   font-family: var(--font-mono);
-  font-size: 0.56rem;
-  letter-spacing: 0.28em;
+  font-size: 0.5rem;
+  letter-spacing: 0.26em;
   text-transform: uppercase;
   color: #304870;
 }
