@@ -1,7 +1,7 @@
 export const company = {
   name: "Raghava Ram IT Solutions",
   tagline: "Innovate. Integrate. Elevate.",
-  headline: "We build digital success that drives real results",
+  headline: "We build digital systems that drive real results",
   /**
    * Display form, grouped the way an Indian number is actually read aloud:
    * country code, then the 5-5 split of the mobile number. Ten unbroken digits

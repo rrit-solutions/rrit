@@ -33,13 +33,14 @@ export function HeroContent() {
           <p className="eyebrow mt-5 text-accent">{company.tagline}</p>
 
           <h1 className="display mt-6 text-[clamp(2.75rem,7.5vw,5.5rem)] text-ink">
-            We build digital success that drives real results
+            We build digital systems that drive{" "}
+            <span className="text-[#304870]">real results</span>
           </h1>
 
           <p className="prose-measure mt-6 text-base text-slate sm:text-lg">
-            Web and mobile development, digital marketing, enterprise systems
-            and AI automation — delivered on time and priced for businesses that
-            actually have to watch the budget.
+            Web and mobile apps, marketing systems, enterprise software and AI
+            automation built for businesses that need results without the
+            guesswork.
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-3">
