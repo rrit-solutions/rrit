@@ -8,7 +8,7 @@ import "./globals.css";
  * see public/fonts/README.md.
  */
 
-const SITE_URL = "https://raghavaramitsolutions.com";
+const SITE_URL = "https://rritsolutions.in";
 
 const SITE_NAME = "Raghava Ram IT Solutions";
 

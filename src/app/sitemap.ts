@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const SITE_URL = "https://raghavaramitsolutions.com";
+const SITE_URL = "https://rritsolutions.in";
 
 /**
  * Served at /sitemap.xml.
