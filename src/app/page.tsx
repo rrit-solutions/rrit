@@ -65,8 +65,8 @@ export default function Home() {
           </div>
           <div className="stats">
             <div className="stat">
-              <strong>180+</strong>
-              <span>Students Managed</span>
+              <strong>20+</strong>
+              <span>Clients Managed</span>
             </div>
             <div className="stat">
               <strong>60%</strong>
@@ -462,7 +462,7 @@ export default function Home() {
         </div>
         <div className="metrics reveal">
           <div className="metric">
-            <strong>50+</strong>
+            <strong>20+</strong>
             <span>Clients managed</span>
           </div>
           <div className="metric">
@@ -491,6 +491,149 @@ export default function Home() {
         </div>
 
         <div className="project-grid reveal">
+          <article className="project-card">
+            <div className="project-icon">
+              <span className="icon-art">
+                <svg viewBox="0 0 48 48" aria-hidden="true">
+                  <path
+                    d="M8 39V13l16-6 16 6v26"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.4"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M15 18h6v6h-6zM27 18h6v6h-6zM15 29h6v6h-6zM27 29h6v6h-6zM21 39v-8h6v8"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.2"
+                  />
+                  <path
+                    d="M5 39h38"
+                    stroke="currentColor"
+                    strokeWidth="2.4"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </span>
+              <i className="icon-point"></i>
+            </div>
+            <div className="project-number">01</div>
+            <h3>Hostel Management</h3>
+            <p>
+              Room allocation, fees, attendance and student management in one
+              system.
+            </p>
+            <div className="project-tags">
+              <span>Web App</span>
+              <span>Management</span>
+            </div>
+          </article>
+          <article className="project-card">
+            <div className="project-icon">
+              <span className="icon-art">
+                <svg viewBox="0 0 48 48" aria-hidden="true">
+                  <path
+                    d="M9 14h30v25H9z"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.4"
+                    rx="4"
+                  />
+                  <path
+                    d="M15 20h18M15 26h18M15 32h10"
+                    stroke="currentColor"
+                    strokeWidth="2.4"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M12 10h24"
+                    stroke="currentColor"
+                    strokeWidth="2.4"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </span>
+              <i className="icon-point"></i>
+            </div>
+            <div className="project-number">02</div>
+            <h3>Inventory Management</h3>
+            <p>Track stock, products, movement and business inventory with ease.</p>
+            <div className="project-tags">
+              <span>ERP</span>
+              <span>Automation</span>
+            </div>
+          </article>
+          <article className="project-card">
+            <div className="project-icon">
+              <span className="icon-art">
+                <svg viewBox="0 0 48 48" aria-hidden="true">
+                  <path
+                    d="M8 18h32v20H8z"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.4"
+                  />
+                  <path
+                    d="M6 18l4-9h28l4 9"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.4"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M17 18v4h14v-4M17 29h14M17 34h9"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.4"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </span>
+              <i className="icon-point"></i>
+            </div>
+            <div className="project-number">03</div>
+            <h3>E-Commerce</h3>
+            <p>
+              Modern online shopping experiences with products, orders and
+              payments.
+            </p>
+            <div className="project-tags">
+              <span>Web</span>
+              <span>Commerce</span>
+            </div>
+          </article>
+          <article className="project-card">
+            <div className="project-icon">
+              <span className="icon-art">
+                <svg viewBox="0 0 48 48" aria-hidden="true">
+                  <path
+                    d="M24 8c5 8 11 13 11 21a11 11 0 1 1-22 0c0-8 6-13 11-21z"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.4"
+                  />
+                  <path
+                    d="M24 19v12M18 25h12"
+                    stroke="currentColor"
+                    strokeWidth="2.4"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </span>
+              <i className="icon-point"></i>
+            </div>
+            <div className="project-number">04</div>
+            <h3>Blood Donation App</h3>
+            <p>
+              Connect donors and recipients with a simple, accessible mobile
+              experience.
+            </p>
+            <div className="project-tags">
+              <span>Mobile App</span>
+              <span>Social Impact</span>
+            </div>
+          </article>
           <article className="project-card featured-project">
             <div className="project-icon">
               <span className="icon-art">
@@ -538,80 +681,6 @@ export default function Home() {
             <div className="project-icon">
               <span className="icon-art">
                 <svg viewBox="0 0 48 48" aria-hidden="true">
-                  <path
-                    d="M8 18h32v20H8z"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.4"
-                  />
-                  <path
-                    d="M6 18l4-9h28l4 9"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.4"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M17 18v4h14v-4M17 29h14M17 34h9"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.4"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </span>
-              <i className="icon-point"></i>
-            </div>
-            <div className="project-number">03</div>
-            <h3>E-Commerce</h3>
-            <p>
-              Modern online shopping experiences with products, orders and
-              payments.
-            </p>
-            <div className="project-tags">
-              <span>Web</span>
-              <span>Commerce</span>
-            </div>
-          </article>
-          <article className="project-card">
-            <div className="project-icon">
-              <span className="icon-art">
-                <svg viewBox="0 0 48 48" aria-hidden="true">
-                  <path
-                    d="M9 14h30v25H9z"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.4"
-                    rx="4"
-                  />
-                  <path
-                    d="M15 20h18M15 26h18M15 32h10"
-                    stroke="currentColor"
-                    strokeWidth="2.4"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M12 10h24"
-                    stroke="currentColor"
-                    strokeWidth="2.4"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </span>
-              <i className="icon-point"></i>
-            </div>
-            <div className="project-number">02</div>
-            <h3>Inventory Management</h3>
-            <p>Track stock, products, movement and business inventory with ease.</p>
-            <div className="project-tags">
-              <span>ERP</span>
-              <span>Automation</span>
-            </div>
-          </article>
-          <article className="project-card">
-            <div className="project-icon">
-              <span className="icon-art">
-                <svg viewBox="0 0 48 48" aria-hidden="true">
                   <rect
                     x="7"
                     y="8"
@@ -647,75 +716,6 @@ export default function Home() {
             <div className="project-tags">
               <span>Enterprise</span>
               <span>Automation</span>
-            </div>
-          </article>
-          <article className="project-card">
-            <div className="project-icon">
-              <span className="icon-art">
-                <svg viewBox="0 0 48 48" aria-hidden="true">
-                  <path
-                    d="M24 8c5 8 11 13 11 21a11 11 0 1 1-22 0c0-8 6-13 11-21z"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.4"
-                  />
-                  <path
-                    d="M24 19v12M18 25h12"
-                    stroke="currentColor"
-                    strokeWidth="2.4"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </span>
-              <i className="icon-point"></i>
-            </div>
-            <div className="project-number">04</div>
-            <h3>Blood Donation App</h3>
-            <p>
-              Connect donors and recipients with a simple, accessible mobile
-              experience.
-            </p>
-            <div className="project-tags">
-              <span>Mobile App</span>
-              <span>Social Impact</span>
-            </div>
-          </article>
-          <article className="project-card">
-            <div className="project-icon">
-              <span className="icon-art">
-                <svg viewBox="0 0 48 48" aria-hidden="true">
-                  <path
-                    d="M8 39V13l16-6 16 6v26"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.4"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M15 18h6v6h-6zM27 18h6v6h-6zM15 29h6v6h-6zM27 29h6v6h-6zM21 39v-8h6v8"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.2"
-                  />
-                  <path
-                    d="M5 39h38"
-                    stroke="currentColor"
-                    strokeWidth="2.4"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </span>
-              <i className="icon-point"></i>
-            </div>
-            <div className="project-number">01</div>
-            <h3>Hostel Management</h3>
-            <p>
-              Room allocation, fees, attendance and student management in one
-              system.
-            </p>
-            <div className="project-tags">
-              <span>Web App</span>
-              <span>Management</span>
             </div>
           </article>
         </div>
