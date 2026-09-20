@@ -602,6 +602,49 @@ function App() {
           </div>
 
           <div className="project-grid reveal">
+            <article className="project-card featured-project">
+              <div className="project-icon">
+                <span className="icon-art">
+                  <svg viewBox="0 0 48 48" aria-hidden="true">
+                    <rect
+                      x="7"
+                      y="9"
+                      width="34"
+                      height="29"
+                      rx="5"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.4"
+                    />
+                    <path
+                      d="M12 32l7-8 5 5 9-12 5 7"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M12 15h8"
+                      stroke="currentColor"
+                      strokeWidth="2.4"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                </span>
+                <i className="icon-point"></i>
+              </div>
+              {/* <div className="project-number">05</div> */}
+              <h3>Meta Advertising</h3>
+              <p>
+                Campaign setup, audience targeting and performance-focused
+                digital advertising.
+              </p>
+              <div className="project-tags">
+                <span>Meta Ads</span>
+                <span>Marketing</span>
+              </div>
+            </article>
             <article className="project-card">
               <div className="project-icon">
                 <span className="icon-art">
@@ -629,7 +672,7 @@ function App() {
                 </span>
                 <i className="icon-point"></i>
               </div>
-              <div className="project-number">01</div>
+              {/* <div className="project-number">01</div> */}
               <h3>Hostel Management</h3>
               <p>
                 Room allocation, fees, attendance and student management in one
@@ -667,7 +710,7 @@ function App() {
                 </span>
                 <i className="icon-point"></i>
               </div>
-              <div className="project-number">02</div>
+              {/* <div className="project-number">02</div> */}
               <h3>Inventory Management</h3>
               <p>
                 Track stock, products, movement and business inventory with
@@ -706,7 +749,7 @@ function App() {
                 </span>
                 <i className="icon-point"></i>
               </div>
-              <div className="project-number">03</div>
+              {/* <div className="project-number">03</div> */}
               <h3>E-Commerce</h3>
               <p>
                 Modern online shopping experiences with products, orders and
@@ -737,7 +780,7 @@ function App() {
                 </span>
                 <i className="icon-point"></i>
               </div>
-              <div className="project-number">04</div>
+              {/* <div className="project-number">04</div> */}
               <h3>Blood Donation App</h3>
               <p>
                 Connect donors and recipients with a simple, accessible mobile
@@ -746,49 +789,6 @@ function App() {
               <div className="project-tags">
                 <span>Mobile App</span>
                 <span>Social Impact</span>
-              </div>
-            </article>
-            <article className="project-card featured-project">
-              <div className="project-icon">
-                <span className="icon-art">
-                  <svg viewBox="0 0 48 48" aria-hidden="true">
-                    <rect
-                      x="7"
-                      y="9"
-                      width="34"
-                      height="29"
-                      rx="5"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2.4"
-                    />
-                    <path
-                      d="M12 32l7-8 5 5 9-12 5 7"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2.4"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M12 15h8"
-                      stroke="currentColor"
-                      strokeWidth="2.4"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </span>
-                <i className="icon-point"></i>
-              </div>
-              <div className="project-number">05</div>
-              <h3>Meta Advertising</h3>
-              <p>
-                Campaign setup, audience targeting and performance-focused
-                digital advertising.
-              </p>
-              <div className="project-tags">
-                <span>Meta Ads</span>
-                <span>Marketing</span>
               </div>
             </article>
             <article className="project-card">
@@ -821,7 +821,7 @@ function App() {
                 </span>
                 <i className="icon-point"></i>
               </div>
-              <div className="project-number">06</div>
+              {/* <div className="project-number">06</div> */}
               <h3>ERP System</h3>
               <p>
                 Connected business workflows that reduce manual work and improve
