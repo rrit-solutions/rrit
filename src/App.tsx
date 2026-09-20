@@ -106,7 +106,9 @@ function App() {
         <button
           className="menu-toggle"
           type="button"
-          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-label={
+            menuOpen ? "Close navigation menu" : "Open navigation menu"
+          }
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((open) => !open)}
         >
@@ -115,13 +117,27 @@ function App() {
           <span></span>
         </button>
         <div className={`mobile-menu${menuOpen ? " open" : ""}`}>
-          <a href="#services" onClick={() => setMenuOpen(false)}>Services</a>
-          <a href="#solutions" onClick={() => setMenuOpen(false)}>Solutions</a>
-          <a href="#results" onClick={() => setMenuOpen(false)}>Results</a>
-          <a href="#projects" onClick={() => setMenuOpen(false)}>Projects</a>
-          <a href="#process" onClick={() => setMenuOpen(false)}>Process</a>
-          <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
-          <a className="btn" href="tel:+918500784889">+91 85007 84889</a>
+          <a href="#services" onClick={() => setMenuOpen(false)}>
+            Services
+          </a>
+          <a href="#solutions" onClick={() => setMenuOpen(false)}>
+            Solutions
+          </a>
+          <a href="#results" onClick={() => setMenuOpen(false)}>
+            Results
+          </a>
+          <a href="#projects" onClick={() => setMenuOpen(false)}>
+            Projects
+          </a>
+          <a href="#process" onClick={() => setMenuOpen(false)}>
+            Process
+          </a>
+          <a href="#contact" onClick={() => setMenuOpen(false)}>
+            Contact
+          </a>
+          <a className="btn" href="tel:+918500784889">
+            +91 85007 84889
+          </a>
         </div>
       </nav>
 
