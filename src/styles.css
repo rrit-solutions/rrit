@@ -523,6 +523,20 @@ h2 {
   font-size: 42px;
   margin-bottom: 24px;
 }
+.service-icon-svg {
+  width: 48px;
+  height: 48px;
+  display: block;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  color: #173b68;
+}
+.card.active .service-icon-svg {
+  color: var(--gold2);
+}
 .card h3 {
   font-size: 21px;
   margin: 0 0 10px;
