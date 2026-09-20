@@ -140,6 +140,10 @@ button {
 .nav a:hover {
   color: var(--gold2);
 }
+.menu-toggle,
+.mobile-menu {
+  display: none;
+}
 .btn {
   display: inline-flex;
   align-items: center;
@@ -1828,8 +1832,62 @@ footer strong {
 }
 
 @media (max-width: 850px) {
-  .nav a {
+  .nav > a {
     display: none;
+  }
+  .menu-toggle {
+    width: 42px;
+    height: 42px;
+    padding: 9px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    margin-left: auto;
+    border: 1px solid rgba(228, 189, 100, 0.55);
+    border-radius: 12px;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+  }
+  .menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--gold2);
+  }
+  .mobile-menu {
+    position: absolute;
+    top: calc(100% + 9px);
+    right: 0;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px;
+    border: 1px solid rgba(228, 189, 100, 0.3);
+    border-radius: 16px;
+    background: rgba(6, 23, 40, 0.98);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.25);
+  }
+  .mobile-menu.open {
+    display: flex;
+  }
+  .mobile-menu a {
+    display: block;
+    padding: 11px 12px;
+    border-radius: 9px;
+    color: #e5ebf1;
+    font-size: 14px;
+  }
+  .mobile-menu a:hover {
+    background: rgba(228, 189, 100, 0.1);
+  }
+  .mobile-menu .btn {
+    margin-top: 5px;
+    color: #091827;
+    text-align: center;
   }
   .hero {
     grid-template-columns: 1fr;
