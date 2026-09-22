@@ -1,7 +1,35 @@
 import { useEffect, useState } from "react";
+import type { KeyboardEvent } from "react";
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  // The navy highlight moves to whichever project card is selected, and the
+  // shine sweep replays on every selection (tick remounts the shine span).
+  const [selectedProject, setSelectedProject] = useState(0);
+  const [shineTick, setShineTick] = useState(0);
+
+  const selectProject = (index: number) => {
+    setSelectedProject(index);
+    setShineTick((tick) => tick + 1);
+  };
+
+  const projectProps = (index: number) => ({
+    className: `project-card${selectedProject === index ? " selected" : ""}`,
+    role: "button",
+    tabIndex: 0,
+    onClick: () => selectProject(index),
+    onKeyDown: (e: KeyboardEvent<HTMLElement>) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        selectProject(index);
+      }
+    },
+  });
+
+  // Remounting the shine span (new key) replays the sweep on every selection.
+  const shineKey = (index: number) =>
+    selectedProject === index ? shineTick : "idle";
 
   useEffect(() => {
     const io = new IntersectionObserver(
@@ -640,7 +668,8 @@ function App() {
           </div>
 
           <div className="project-grid reveal">
-            <article className="project-card featured-project">
+            <article {...projectProps(0)}>
+              <span key={shineKey(0)} className="selection-shine" aria-hidden />
               <div className="project-icon">
                 <span className="icon-art">
                   <svg viewBox="0 0 48 48" aria-hidden="true">
@@ -672,7 +701,7 @@ function App() {
                 </span>
                 <i className="icon-point"></i>
               </div>
-              {/* <div className="project-number">05</div> */}
+              <div className="project-number">01</div>
               <h3>Meta Advertising</h3>
               <p>
                 Campaign setup, audience targeting and performance-focused
@@ -683,83 +712,8 @@ function App() {
                 <span>Marketing</span>
               </div>
             </article>
-            <article className="project-card">
-              <div className="project-icon">
-                <span className="icon-art">
-                  <svg viewBox="0 0 48 48" aria-hidden="true">
-                    <path
-                      d="M8 39V13l16-6 16 6v26"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2.4"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M15 18h6v6h-6zM27 18h6v6h-6zM15 29h6v6h-6zM27 29h6v6h-6zM21 39v-8h6v8"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2.2"
-                    />
-                    <path
-                      d="M5 39h38"
-                      stroke="currentColor"
-                      strokeWidth="2.4"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </span>
-                <i className="icon-point"></i>
-              </div>
-              {/* <div className="project-number">01</div> */}
-              <h3>Hostel Management</h3>
-              <p>
-                Room allocation, fees, attendance and student management in one
-                system.
-              </p>
-              <div className="project-tags">
-                <span>Web App</span>
-                <span>Management</span>
-              </div>
-            </article>
-            <article className="project-card">
-              <div className="project-icon">
-                <span className="icon-art">
-                  <svg viewBox="0 0 48 48" aria-hidden="true">
-                    <path
-                      d="M9 14h30v25H9z"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2.4"
-                      rx="4"
-                    />
-                    <path
-                      d="M15 20h18M15 26h18M15 32h10"
-                      stroke="currentColor"
-                      strokeWidth="2.4"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M12 10h24"
-                      stroke="currentColor"
-                      strokeWidth="2.4"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </span>
-                <i className="icon-point"></i>
-              </div>
-              {/* <div className="project-number">02</div> */}
-              <h3>Inventory Management</h3>
-              <p>
-                Track stock, products, movement and business inventory with
-                ease.
-              </p>
-              <div className="project-tags">
-                <span>ERP</span>
-                <span>Automation</span>
-              </div>
-            </article>
-            <article className="project-card">
+            <article {...projectProps(1)}>
+              <span key={shineKey(1)} className="selection-shine" aria-hidden />
               <div className="project-icon">
                 <span className="icon-art">
                   <svg viewBox="0 0 48 48" aria-hidden="true">
@@ -787,7 +741,7 @@ function App() {
                 </span>
                 <i className="icon-point"></i>
               </div>
-              {/* <div className="project-number">03</div> */}
+              <div className="project-number">02</div>
               <h3>E-Commerce</h3>
               <p>
                 Modern online shopping experiences with products, orders and
@@ -798,18 +752,25 @@ function App() {
                 <span>Commerce</span>
               </div>
             </article>
-            <article className="project-card">
+            <article {...projectProps(2)}>
+              <span key={shineKey(2)} className="selection-shine" aria-hidden />
               <div className="project-icon">
                 <span className="icon-art">
                   <svg viewBox="0 0 48 48" aria-hidden="true">
                     <path
-                      d="M24 8c5 8 11 13 11 21a11 11 0 1 1-22 0c0-8 6-13 11-21z"
+                      d="M9 14h30v25H9z"
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="2.4"
                     />
                     <path
-                      d="M24 19v12M18 25h12"
+                      d="M15 20h18M15 26h18M15 32h10"
+                      stroke="currentColor"
+                      strokeWidth="2.4"
+                      strokeLinecap="round"
+                    />
+                    <path
+                      d="M12 10h24"
                       stroke="currentColor"
                       strokeWidth="2.4"
                       strokeLinecap="round"
@@ -818,18 +779,19 @@ function App() {
                 </span>
                 <i className="icon-point"></i>
               </div>
-              {/* <div className="project-number">04</div> */}
-              <h3>Blood Donation App</h3>
+              <div className="project-number">03</div>
+              <h3>Inventory Management</h3>
               <p>
-                Connect donors and recipients with a simple, accessible mobile
-                experience.
+                Track stock, products, movement and business inventory with
+                ease.
               </p>
               <div className="project-tags">
-                <span>Mobile App</span>
-                <span>Social Impact</span>
+                <span>ERP</span>
+                <span>Automation</span>
               </div>
             </article>
-            <article className="project-card">
+            <article {...projectProps(3)}>
+              <span key={shineKey(3)} className="selection-shine" aria-hidden />
               <div className="project-icon">
                 <span className="icon-art">
                   <svg viewBox="0 0 48 48" aria-hidden="true">
@@ -859,7 +821,7 @@ function App() {
                 </span>
                 <i className="icon-point"></i>
               </div>
-              {/* <div className="project-number">06</div> */}
+              <div className="project-number">04</div>
               <h3>ERP System</h3>
               <p>
                 Connected business workflows that reduce manual work and improve
@@ -868,6 +830,77 @@ function App() {
               <div className="project-tags">
                 <span>Enterprise</span>
                 <span>Automation</span>
+              </div>
+            </article>
+            <article {...projectProps(4)}>
+              <span key={shineKey(4)} className="selection-shine" aria-hidden />
+              <div className="project-icon">
+                <span className="icon-art">
+                  <svg viewBox="0 0 48 48" aria-hidden="true">
+                    <path
+                      d="M24 8c5 8 11 13 11 21a11 11 0 1 1-22 0c0-8 6-13 11-21z"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.4"
+                    />
+                    <path
+                      d="M24 19v12M18 25h12"
+                      stroke="currentColor"
+                      strokeWidth="2.4"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                </span>
+                <i className="icon-point"></i>
+              </div>
+              <div className="project-number">05</div>
+              <h3>Blood Donation App</h3>
+              <p>
+                Connect donors and recipients with a simple, accessible mobile
+                experience.
+              </p>
+              <div className="project-tags">
+                <span>Mobile App</span>
+                <span>Social Impact</span>
+              </div>
+            </article>
+            <article {...projectProps(5)}>
+              <span key={shineKey(5)} className="selection-shine" aria-hidden />
+              <div className="project-icon">
+                <span className="icon-art">
+                  <svg viewBox="0 0 48 48" aria-hidden="true">
+                    <path
+                      d="M8 39V13l16-6 16 6v26"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.4"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M15 18h6v6h-6zM27 18h6v6h-6zM15 29h6v6h-6zM27 29h6v6h-6zM21 39v-8h6v8"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.2"
+                    />
+                    <path
+                      d="M5 39h38"
+                      stroke="currentColor"
+                      strokeWidth="2.4"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                </span>
+                <i className="icon-point"></i>
+              </div>
+              <div className="project-number">06</div>
+              <h3>Hostel Management</h3>
+              <p>
+                Room allocation, fees, attendance and student management in one
+                system.
+              </p>
+              <div className="project-tags">
+                <span>Web App</span>
+                <span>Management</span>
               </div>
             </article>
           </div>
